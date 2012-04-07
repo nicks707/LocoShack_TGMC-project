@@ -1,0 +1,64 @@
+<%@ page language="java" import="java.sql.*" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Response!</title>
+<style>
+html, body,table
+{
+  height: 100%;
+}
+</style>
+</head>
+<body style="margin-top:0px;margin-left:0px;margin-right:0px;">
+<table width="100%" cellpadding="0px" cellspacing="0px" style=" background-image:url(images/Green-cloth-texture.jpg)">
+<tr height="80px"><td><jsp:include page="header.jsp"></jsp:include></td></tr>
+<tr height="100%"><td>
+<%
+String id=request.getParameter("id");
+String pass=request.getParameter("pass");
+
+try
+{
+	Class.forName("com.ibm.db2.jcc.DB2Driver");
+	Connection con=DriverManager.getConnection("jdbc:db2://localhost:50000/GEO","db2admin","tgmc");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("select * from db2admin.usermap where un='"+id+"' and pwd='"+pass+"'");
+    int count=0;
+    while(rs.next()){
+    count++;
+   String userid=rs.getString("userid");
+   session.setAttribute("userid",userid);
+    }           
+    if(count==0)
+    {
+    %>
+   <center> The credentials you gave are invalid<br/>
+    Enter a valid username and a matching password.<a href="login.jsp">TRY AGAIN</a></center>
+    <%	
+    }
+    else
+    {
+    	
+    session.setAttribute("id",id);
+    session.setAttribute("pass",pass);
+		
+    
+	response.sendRedirect("accmain.jsp");
+    	
+    }
+    
+}
+catch(Exception e)
+{
+out.println("FATAL ERROR");
+out.println(e);
+}
+
+%></td></tr>
+<tr height="50px"><td><jsp:include page="footer.jsp"></jsp:include></td></tr>
+</table>
+</body>
+</html>

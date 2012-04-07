@@ -1,0 +1,82 @@
+<%@ page language="java" import="java.sql.*" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Take Survey</title>
+<style>
+html, body,table
+{
+  height: 100%;
+  width:100%;
+}
+</style>
+</head>
+<body style="margin-top:0px;margin-left:0px;margin-right:0px">
+<table width="100%" cellpadding="0" cellspacing="0"   style="background-color:#FFFFCC">
+<tr height="60px"><td><jsp:include page="accheader.jsp"></jsp:include></td></tr>
+<tr><td>
+<%
+String surveyid="s";
+String userid=(String)session.getAttribute("userid");
+int i=0;
+int j=0;
+try
+{
+	Class.forName("com.ibm.db2.jcc.DB2Driver");
+	Connection con=DriverManager.getConnection("jdbc:db2://localhost:50000/GEO","db2admin","tgmc");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("select city from db2admin.userdata where userid='"+userid+"' ");
+    while(rs.next())
+    {
+    	String city=rs.getString("city");
+    	Statement st1=con.createStatement();
+    	ResultSet rs1=st1.executeQuery("select surveyid from db2admin.surveymap where city='"+city+"'");
+    	while(rs1.next())
+    	{
+    		surveyid=rs1.getString("surveyid");
+    		i++;
+    	}
+    	if(i!=0)
+    	{
+    		Statement st2=con.createStatement();
+        	ResultSet rs2=st2.executeQuery("select * from db2admin.usersurveymap where userid='"+userid+"' and surveyid='"+surveyid+"'");
+    		while(rs2.next())
+    		{
+    		j++;
+    			}	
+    		if(j==0)
+    		{
+    			String path="showsurvey.jsp?surveyid="+surveyid;
+    			response.sendRedirect(path);
+    		}
+    		else
+    			{%>
+    			<center>You have attended all the surveys available</center>
+    			<%}
+    	}
+    	else{
+    		%>
+    		<center>There is no survey available in your city.TRY AFTER FEW DAYS!!!!!</center>
+    		<%
+    	}
+    	
+    }//end of result set
+
+
+}
+  
+catch(Exception e)
+{
+	out.println(e);
+}
+
+
+
+%>
+</td></tr>
+<tr height="50px"><td><jsp:include page="footer.jsp"></jsp:include></td></tr>
+</table>
+</body>
+</html>

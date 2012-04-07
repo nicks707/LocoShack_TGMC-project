@@ -1,0 +1,51 @@
+<%@ page language="java"  contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Upload Photos</title>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $counter = 0; // initialize 0 for limitting textboxes
+        $('#buttonadd').click(function(){
+            if ($counter < 10)
+            {
+                $counter++;
+                $('#buttondiv').append('<div><label>Textbox #'+$counter+'</label><input type="text" name="textbox[]" class="textbox" value="" /></div>');
+            }else{
+                alert('You cannot add more than 10 textboxes');
+            }
+        });
+
+        $('#buttonremove').click(function(){
+            if ($counter){
+                $counter--;
+                $('#buttondiv .textbox:last').parent().remove(); // get the last textbox and parent for deleting the whole div
+            }else{
+                alert('No More textbox to remove');
+            }
+        });
+
+        $('#buttonget').click(function(){
+            alert($('.textbox').serialize()); // use serialize to get the value of textbox
+        });
+
+        $('#dropdownadd').change(function(){
+            $('#dropdowndiv').html(""); // when the dropdown change set the div to empty
+            $loopcount = $(this).val(); // get the selected value
+            for (var i = 1; i <= $loopcount; i++)
+            {
+                $('#dropdowndiv').append('<div><label>Textbox #'+i+'</label><input type="text" name="textbox2[]" class="textbox2" value="" /></div>');
+            }
+        });
+    });
+</script>
+</head>
+<body>
+<button id="buttonadd" value="add"></button>
+<div id="buttondiv"></div>
+
+
+</body>
+</html>

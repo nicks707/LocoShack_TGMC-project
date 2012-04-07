@@ -1,0 +1,80 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Upload Photos</title>
+<style>
+html, body,table
+{
+  height: 100%;
+  width:100%;
+}
+</style>
+<script type="text/javascript">
+function checkfield()
+{
+	 if((document.myform.image.value.length==0)||(document.myform.des.value.length==0)||(document.myform.lat.value.length==0)||(document.myform.lon.value.length==0)||(document.myform.city.value.length==0)||(document.myform.cat.value.length==0)	)	
+
+{
+alert("ALL * FIELDS ARE MANDATORY");
+return false;
+}
+
+}
+
+
+
+</script>
+</head>
+<body style="margin-top:0px;margin-left:0px;margin-right:0px">
+<table  width="100%" cellpadding="0" cellspacing="0"   style="background-color:#FFFFCC">
+<tr height="60px"><td><jsp:include page="header2.jsp"></jsp:include></td></tr>
+<tr height="20px"><td valign="top"><center><h2><b>Upload Images</b></h2></center><br/><br/></td></tr>
+<tr ><td valign="top" style="padding-left:40px;">
+<b>Upload images and classify them into one of the categories.<br/>
+By doing so you earn 50 credits which you could redeem afterwards!!!!</b><br/><br/>
+<form action="upload.jsp" name="myform" onsubmit=" return checkfield();">
+<b>IMAGE(JPG/GIF/PNG)</b><input type="file" name="image" id="image" size="40">*<br/><br/>
+<b>Add Description</b><br/>
+<textarea rows="5" cols="30" name="des" id="des"></textarea><br/><br/>
+<b>Set the location of the image</b>&nbsp;<input type="button" value="SET LOCATION" onclick="window.open('setloc2.jsp','setloc2')">*<br/><br/>
+<input type="hidden" name="lat" id="lat" value="">
+<input type="hidden" name="lon" id="lon" value="">
+<b>City</b>&nbsp;&nbsp;<input type="text" name="city" id="city">*<br/><br/>
+<b>Select a category:*</b><br/><br/>
+<input type="radio" name="cat" value="eat">EAT<br/>
+<input type="radio" name="cat" value="shop">SHOP<br/>
+<input type="radio" name="cat" value="health">HEALTHCARE<br/>
+<input type="radio" name="cat" value="tour">TOURIST ATTRACTION<br/>
+<div align="center"><input type="submit" value="SUBMIT"></div><br/><br/>
+<%
+try{
+	
+Connection con;
+Statement st;
+Class.forName("com.ibm.db2.jcc.DB2Driver");
+con = DriverManager.getConnection("jdbc:db2://localhost:50000/GEO","db2admin","tgmc");
+Statement st=createStatement();
+ResultSet rs=st.executeQuery("select userid from usermap where un='"+un+"'");
+while(rs.next())
+{
+String userid=rs.getString("userid");	
+}
+
+
+%>
+
+
+</form>
+</td></tr>
+<tr height="50px"><td><jsp:include page="footer.jsp"></jsp:include></td></tr>
+
+
+
+
+
+</table>
+</body>
+</html>

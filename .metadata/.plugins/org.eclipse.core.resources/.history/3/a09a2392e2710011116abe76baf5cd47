@@ -1,0 +1,25 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Select your category</title>
+</head>
+<body>
+<b><center>SELECT YOUR CATEGORY</center></b>
+With an aim of populating the present database we would appreciate if you select category for the tag you entered!!<br/><br/>
+<form>
+<input type="checkbox" name="cat" value="eat" /> Eat n Drink<br/>
+
+<input type="checkbox" name="cat" value="shop" />Shopping<br/>
+<input type="checkbox" name="cat" value="health" />Healthcare<br/>
+
+<input type="checkbox" name="cat" value="mon" />Tourist Attraction<br/>
+<input type="submit" value="Done"></input>
+
+
+
+</form>
+</body>
+</html>

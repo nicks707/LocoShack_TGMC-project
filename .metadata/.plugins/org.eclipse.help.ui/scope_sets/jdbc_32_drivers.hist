@@ -1,0 +1,6 @@
+#Sun Mar 04 13:32:32 IST 2012
+__DEFAULT__=false
+org.eclipse.sdk.Eclipse.master=true
+org.eclipse.sdk.Google.master=true
+org.eclipse.help.ui.localSearch.master=true
+expression=jdbc drivers

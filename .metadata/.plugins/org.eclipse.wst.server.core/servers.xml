@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<servers>
+  <server hostname="localhost" id="Apache Geronimo v3.0 Server at localhost" inPlaceSharedLib="false" karafShell="false" name="Apache Geronimo v3.0 Server at localhost" runFromWorkspace="false" runtime-id="Apache Geronimo v3.0" selectClasspathContainers="false" server-type="org.apache.geronimo.server.30" server-type-id="org.apache.geronimo.server.30" start-timeout="240" stop-timeout="90" timestamp="28">
+    <map RMIRegistry="1099" WebConnector="8080" adminID="system" adminPassword="{Simple}rO0ABXNyABlqYXZheC5jcnlwdG8uU2VhbGVkT2JqZWN0PjY9psO3VHACAARbAA1lbmNvZGVkUGFyYW1zdAACW0JbABBlbmNyeXB0ZWRDb250ZW50cQB+AAFMAAlwYXJhbXNBbGd0ABJMamF2YS9sYW5nL1N0cmluZztMAAdzZWFsQWxncQB+AAJ4cHB1cgACW0Ks8xf4BghU4AIAAHhwAAAAEHnh03EmiNu4VTuWH+xZiRBwdAADQUVT" cleanOSGiBundleCache="false" key="geronimo_server_instance_properties" logLevel="--long" maxPings="40" pingDelay="10000" pingInterval="5000" publishTimeout="900000" refreshOSGiBundle="false"/>
+    <list key="noRedeploy.excludePatterns" value0="WEB-INF/geronimo-*.xml" value1="WEB-INF/web.xml"/>
+    <list key="modules" value0="ram::org.eclipse.jst.jee.server:ram::jst.web::3.0"/>
+  </server>
+</servers>

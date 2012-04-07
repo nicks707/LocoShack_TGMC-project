@@ -1,0 +1,55 @@
+<%@ page language="java" import="java.sql.*" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+<style>
+html, body,table
+{
+  height: 100%;
+}
+</style>
+</head>
+<body style="margin-top:0px;margin-left:0px;margin-right:0px">
+<table width="100%" cellpadding="0" cellspacing="0"   style="background-color:#FFFFCC">
+<tr height="60px"><td><jsp:include page="accheader.jsp"></jsp:include></td></tr>
+<tr><td>
+
+<%
+try
+{
+	String surveyid=request.getParameter("surveyid");
+	Class.forName("com.ibm.db2.jcc.DB2Driver");
+	Connection con=DriverManager.getConnection("jdbc:db2://localhost:50000/GEO","db2admin","tgmc");
+    Statement st=con.createStatement();
+    ResultSet rs=st.executeQuery("select * from db2admin.usersurveymap where surveyid='"+surveyid+"'");
+    int count=0;
+    while(rs.next()){
+              count++;
+              }           
+   
+    if(count==0)
+    {
+    	response.sendRedirect("surveyresults.jsp");
+    }
+    
+    
+    
+}
+catch(Exception e)
+{
+out.println("FATAL ERROR");
+out.println(e);
+}
+
+
+
+
+
+%>
+</td></tr>
+<tr height="80px"><td><jsp:include page="footer.jsp"></jsp:include></td></tr>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map>
+	<bundle bundleID="19" name="geronimo-jms_1.1_spec" provider="Apache Software Foundation"/>
+	<bundle bundleID="35" name="osgi.core" provider="OSGi Alliance"/>
+	<bundle bundleID="17" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo JAX-WS Spec 2.2" provider="The Apache Software Foundation"/>
+	<bundle bundleID="18" name="Apache Geronimo Java Contexts and Dependency Injection (JSR-299) Spec API" provider="The Apache Software Foundation"/>
+	<bundle bundleID="33" class="org.apache.geronimo.jdbc.DatabaseDriverExtender" name="Geronimo Framework, Modules :: JDBC" provider="The Apache Geronimo development community"/>
+	<bundle bundleID="15" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo JAX-RS 1.1 API" provider="The Apache Software Foundation"/>
+	<bundle bundleID="34" name="osgi.cmpn" provider="OSGi Alliance"/>
+	<bundle bundleID="16" class="org.apache.geronimo.osgi.locator.Activator" name="JAXR 1.0" provider="The Apache Software Foundation"/>
+	<bundle bundleID="13" class="org.apache.geronimo.osgi.locator.Activator" name="Apache JAXB 2.2 Spec" provider="The Apache Software Foundation"/>
+	<bundle bundleID="14" class="org.apache.geronimo.osgi.locator.Activator" name="JAXRPC 1.1" provider="The Apache Software Foundation"/>
+	<bundle bundleID="11" class="org.apache.geronimo.osgi.locator.Activator" name="Java Authentication SPI for Containers" provider="The Apache Software Foundation"/>
+	<bundle bundleID="12" name="JAVAEE Deployment 1.1MR3" provider="The Apache Software Foundation"/>
+	<bundle bundleID="21" name="JSP 2.2" provider="The Apache Software Foundation"/>
+	<bundle bundleID="20" class="org.apache.geronimo.specs.jpa.PersistenceActivator" name="Apache Geronimo JSR-317 JPA 2.0 Spec API" provider="The Apache Software Foundation"/>
+	<bundle bundleID="22" name="geronimo-jta_1.1_spec" provider="Apache Software Foundation"/>
+	<bundle bundleID="23" class="org.apache.geronimo.osgi.registry.Activator" name="Apache Geronimo OSGI factory registry" provider="The Apache Software Foundation"/>
+	<bundle bundleID="24" class="org.apache.geronimo.osgi.locator.Activator" name="SAAJ 1.3" provider="The Apache Software Foundation"/>
+	<bundle bundleID="25" name="Servlet 3.0" provider="The Apache Software Foundation"/>
+	<bundle bundleID="26" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo STAX Spec 1.2" provider="The Apache Software Foundation"/>
+	<bundle bundleID="27" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo JSR-303 Bean Validation Spec API" provider="The Apache Software Foundation"/>
+	<bundle bundleID="28" name="Web Services Metadata 2.0" provider="The Apache Software Foundation"/>
+	<bundle bundleID="29" class="org.apache.geronimo.mail.Activator" name="Geronimo JavaMail 1.4 :: Mail" provider="The Apache Software Foundation"/>
+	<bundle bundleID="3" name="Apache Geronimo JSR-330 Spec API" provider="The Apache Software Foundation"/>
+	<bundle bundleID="2" name="Annotation 1.1" provider="The Apache Software Foundation"/>
+	<bundle bundleID="10" class="org.apache.geronimo.osgi.locator.Activator" name="J2EE JACC 1.4" provider="The Apache Software Foundation"/>
+	<bundle bundleID="1" class="org.apache.geronimo.specs.activation.Activator" name="Activation 1.1" provider="The Apache Software Foundation"/>
+	<bundle bundleID="30" name="WASCE Bundles: jaxb-impl - 2.2.3-1_W20110706" provider="The Apache Software Foundation"/>
+	<bundle bundleID="7" name="Interceptor 1.1" provider="The Apache Software Foundation"/>
+	<bundle bundleID="6" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo Expression Language Spec 2.2" provider="The Apache Software Foundation"/>
+	<bundle bundleID="32" name="Apache MyFaces JSF-2.0 Core OSGi Bundle" provider="The Apache Software Foundation"/>
+	<bundle bundleID="5" class="org.apache.geronimo.osgi.locator.Activator" name="Apache Geronimo EJB Spec 3.1" provider="The Apache Software Foundation"/>
+	<bundle bundleID="31" name="WASCE Bundles: jstl - 1.2-1_W20110706" provider="The Apache Software Foundation"/>
+	<bundle bundleID="4" name="J2EE CCPP 1.0" provider="The Apache Software Foundation"/>
+	<bundle bundleID="9" name="geronimo-j2ee-management_1.1_spec" provider="Apache Software Foundation"/>
+	<bundle bundleID="8" name="J2EE Connector 1.6" provider="The Apache Software Foundation"/>
+</map>

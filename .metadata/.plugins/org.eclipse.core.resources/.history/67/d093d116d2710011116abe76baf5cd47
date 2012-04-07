@@ -1,0 +1,24 @@
+<%@ page language="java" import="java.sql.*" %>
+<% response.setContentType("text/html");%>
+<%
+String str=request.getParameter("queryString");
+try {
+
+Connection con;
+Class.forName("com.ibm.db2.jcc.DB2Driver");
+// Get a Connection to the database
+con = DriverManager.getConnection("jdbc:db2://localhost:50000/GEO","db2admin","tgmc"); 
+//Add the data into the database
+String sql = "SELECT tag FROM tagmap WHERE tag LIKE '"
++str+"%' LIMIT 10";
+Statement stm = con.createStatement();
+stm.executeQuery(sql);
+ResultSet rs= stm.getResultSet();
+while (rs.next ()){
+out.println("<li onclick='fill("+rs.getString("tag")+");'>"
++rs.getString("tag")+"
+""</li>");
+}}catch(Exception e){
+out.println("Exception is ;"+e);
+}
+%>

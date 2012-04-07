@@ -1,0 +1,88 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-Your Location Guide!</title>
+<!-- STYLES -->
+<style type="text/css">
+a{text-decoration:none}
+
+html,body,table#pagelayout {
+height:100%;
+width:100%;
+margin-top:0px;
+margin-left:0px;
+}
+#img{
+background-image:url(images/Green-cloth-texture.jpg);
+}
+.but{ background-color:#CC3333}
+</style>
+<!-- SCRIPTS -->
+<script type="text/javascript">
+
+
+function goToURL(val){
+location.href = val; 
+}
+
+</script>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+</head>
+<body>
+<body bgcolor="#00FFFF" topmargin="0px" onload="showNoticeToast()">
+<table width="100%" id="pagelayout" border="0px" cellpadding="0px" cellspacing="0px">
+<tr bgcolor="#00FFFF" style="height:20px;">
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="hiw.jsp"><b>HOW IT WORKS</b></a> | <a href="credits.jsp"><b>CREDITS</b></a> | <a href="buydata.jsp"><b>BUY DATASETS</b></a> | <a href="surveys.jsp"><b>SURVEYS</b></a> </td>
+<form >
+<td align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="LOGIN"  onclick="javascript:goToURL('login.jsp')" class="but"></td><td align="left"><input type="button" value="SIGN UP" onclick="javascript:goToURL('signup.jsp')" class="but"></td>
+</form> 
+</tr>
+<tr  style="height:300px; background-image:url(images/Green-cloth-texture.jpg)">
+<td  colspan="3"align="center">
+<img src="images/logo.png" height="100px" align="top" /><br/><br/>
+<form action="searchpage.jsp" method="get" name="myform"> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="hidden" name="lat" id="lat" value="">
+<input type="hidden" name="lng" id="lng">
+<input   align="middle" type="text" id="loc"  size="100" width="40px"></input>&nbsp;<button style="background-image:url(images/images.png);min-height:17px;min-width:6px;height:20px;width:20px "  title="Set Location"  onclick="window.open('setloc.jsp','nloc','resizable=no,scrollbars=no,location=no,status=no,menubar=no') "><br/><br /><!-- window.opener.document.forms.myform.myfield.valu -->
+<input type="submit" value="SEARCH" class="but" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" onclick="window.open('setcat.jsp','ncat','width=100,height=250,location=no')" class="but" value="REFINED SEARCH" />
+
+</td></tr>
+</form>
+</td>
+</tr>
+<tr    bgcolor="#99FFFF" style="height:90px;">
+<td  colspan="3" width="100%"  align="center"> <font color="#330099" face="Courier New, Courier, monospace"><b><a href="careers.jsp">Careers</a> <a href="abtus.jsp">AboutUs</a> <a href="contact.jsp">ContactUs</a> <a href="http://www.facebook.com">FanPage</a> <a href="blog.jsp">Blog</a> <a href="faq.jsp">FAQ</a> <a href="tos.jsp">TOS</a></b></font></td>
+</tr>
+</table>
+</body>
+</html>
+</body>
+</html>
+
+<%--
+<%
+try
+{
+String latitude=request.getParameter("lat");
+String longitude=request.getParameter("lon");
+if((latitude!=null) && (longitude!=null))
+{
+	out.println(latitude+","+longitude);
+}
+}
+	
+
+catch(Exception e)
+{
+out.println(e);
+}
+
+%>
+ --%>

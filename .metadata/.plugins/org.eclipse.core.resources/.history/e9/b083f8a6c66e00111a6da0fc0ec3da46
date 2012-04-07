@@ -1,0 +1,211 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>LocoShack-SignUp!</title>
+<style>
+html, body,table
+{
+  height: 100%;
+  width:100%;
+}
+</style>
+
+
+<!-- SCRIPTS GO HERE -->
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function(){
+//called when key is pressed in textbox
+//function for checking username
+$("#inputString").keypress(function (e)
+{
+$("#error").hide();
+$("#autoSuggestionsList").hide();
+//if the letter is not digit then display error and don't type anything
+if( e.which!=8 && e.which!=0 && (e.which<48 || e.which>57)
+&& (e.which<65 || e.which>90)&& (e.which<97 || e.which>122))
+{
+//display error message
+$("#error").html("No Special Characters.Only number & alphabets").show();
+return false;
+}
+});}); 
+//function for dynamic username search
+function lookup(inputString) {
+if(inputString.length <5) {
+$('#suggestions').show();
+$('#autoSuggestionsList').hide();
+}
+ else {
+$('#suggestions').hide();
+$.post("CheckUsername.jsp",{user: ""+inputString+""},function(data){
+$('#autoSuggestionsList').html(data).show();
+});
+}
+} 
+
+//Function to check if passwords match
+function passchk(cpwd){
+var pwd=document.getElementById("pwd");
+if(pwd.value==cpwd)
+{
+    $('#cpwd').html("Password match").show();
+    
+    
+}
+else
+    {
+        $('#cpwd').html("Password don't match").show();
+    }
+}
+  
+  //Empty field check
+  function check()
+    {
+      if((document.form.fn.value.length==0)||(document.form.ln.value.length==0)||(document.form.un.value.length==0)||(document.form.pwd.value.length==0)||(document.form.cpwd.value.length==0)||(document.form.dob.value.length==0)||(document.form.sex.value.length==0)||(document.form.email.value.length==0)||(document.form.sec.value.length==0)||(document.form.secans.value.length==0)||(document.form.txtInput.value.length==0))  
+        {
+            
+            alert("All * fields are mandatory");
+            return false;
+        }
+    }
+</script>
+   <script type="text/javascript">
+
+   //Created / Generates the captcha function    
+    function DrawCaptcha()
+    {
+        var a = Math.ceil(Math.random() * 10)+ '';
+        var b = Math.ceil(Math.random() * 10)+ '';       
+        var c = Math.ceil(Math.random() * 10)+ '';  
+        var d = Math.ceil(Math.random() * 10)+ '';  
+        var e = Math.ceil(Math.random() * 10)+ '';  
+        var f = Math.ceil(Math.random() * 10)+ '';  
+        var g = Math.ceil(Math.random() * 10)+ '';  
+        var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f + ' ' + g;
+        document.getElementById("txtCaptcha").value = code;
+    }
+
+    // Validate the Entered input aganist the generated security code function   
+    function ValidCaptcha(){
+        var str1 = removeSpaces(document.getElementById('txtCaptcha').value);
+        var str2 = removeSpaces(document.getElementById('txtInput').value);
+        if (str1 == str2)
+        	{
+        	alert("Code matched");
+        	return true;}        
+        else
+        	{
+        	alert("Code not matched")
+        	return false;
+        	}
+    }
+
+    // Remove the spaces from the entered and generated code
+    function removeSpaces(string)
+    {
+        return string.split(' ').join('');
+    }
+    
+ 
+    </script>
+    <script type="text/javascript" src="DatePicker/jquery.datepick.js"></script>
+<script type="text/javascript">
+$(function() {
+$('#dob').datepick();
+
+});
+</script>
+    
+    
+    
+    
+    
+    
+</head>
+<body style="margin-left:0px;margin-right:0px;margin-top:0px;" onload="DrawCaptcha();">
+
+<table cellpadding="0px" cellspacing="0px">
+<tr><td><tr height="80px" ><td colspan="3"><jsp:include page="header.jsp"></jsp:include></td></tr></td></tr>
+   <tr height="304px">
+       <td><form name="form" onsubmit=" return check()" action="signupcheck.jsp" method='post'>
+                    <table style=" background-image:url(images/Green-cloth-texture.jpg)" cellpadding="15" cellspacing="15" width="100%" border="0">
+                 
+                    <tr height="20px"><td colspan="2" style="text-align:left; font-size: xx-large; color:blue;"><b>SignUp With LocoShack</b></td></tr>              
+                    <tr><td style="color:chocolate;"><font color="black">* marked fields are mandatory</font></td></tr>
+                     <tr bgcolor="yellow" height="20px"><td width="100%" colspan="2"><b>You are registering for free account and would be deleted after 180 days if not used</b></td></tr>
+                     <tr height="34px" > 
+        <td width="42%" align="center"><b>First name</b></td><td  align="left" width="58%"><input type="text" name="fn"/>*</td></td> </tr>
+                  <tr height="34px" >
+        <td align="center"><b>Last name</b></td><td><input type="text" name="ln"/>*</td> </tr>
+                  <tr height="34px" > 
+                      <td align="center"><b>Username</b></td><td><input align="middle" type="text" name="un" id="inputString" onkeyup="lookup(this.value)"  />
+            <i>@locoshack.com</i>*<br/><div id="suggestions" style="display: none;">
+Value must be greater than 4 characters</div><br/>
+<div style="display: none;" id="autoSuggestionsList"></div><br/>
+<div style="display: none;" id="error"></div><%--<br/><a href="avail.jsp">Check availability</a>--%></td> </tr>
+                  <tr height="34px" ><td align="center"><b>Password</b></td>
+                      <td><input type="text" id="pwd" name="pwd"/>*
+   </td></tr>
+                  <tr height="34px" ><td align="center"><b>Confirm Password</b></td>
+                      <td><input type="text" name="cpwd" onkeyup="passchk(this.value)"/><div id="cpwd"></div>
+   </td></tr>
+         
+                  <tr height="34px" ><td align="center"><b>Date of Birth</b></td>
+      
+    <td><input type="text"  name="dob" id="dob"/>*</td> </tr>
+             <tr height="34px"                              
+                                 ><td align="center"><b>Sex</b></td>
+    <td>
+        <input type="radio" name="sex" value="m"/>Male
+        <input type="radio" name="sex" value="f"/>Female
+    </td></tr>
+              <tr height="34px" ><td align="center"><b>Email Address</b></td>
+      
+    <td><input type="text" name="email"/>*</td> </tr>
+                       
+    <tr height="34px">                             
+                                  <td align="center"><b>Enter a Security Question</b></td>
+                                  <td><textarea rows="5" cols="30" name="sec"></textarea>*
+        
+        
+    </td>
+       </tr>
+        <tr height="34px" ><td align="center"><b>Answer </b></td>
+      
+    <td><input type="text" name="secans"/>*</td> </tr>
+    
+    
+    <tr><td align="center">&nbsp;</td><td><input type="text" id="txtCaptcha" 
+            style="background-image:url(images/1.jpg); text-align:center; border:none;
+            font-weight:bold; font-family:Modern" /><input type="button" id="btnrefresh" value="Refresh" onclick="DrawCaptcha();" /></tr>
+    
+    <tr><td align="center"><b>Enter the code</b></td><td><input type="text" id="txtInput"/>*</td></tr>
+    
+    
+    
+    
+                  
+       <tr height="34px"><td>&nbsp;</td>                             
+                                 <td ><input name="submit" align="left" type="submit"  value="Submit" width="50%" onclick="return ValidCaptcha();"/></td></tr>
+                  
+           </table>
+                
+                 </form></td>
+                
+                
+                
+            </tr>
+<tr><td><tr height="50px"><td colspan="3"><jsp:include page="footer.jsp"></jsp:include></td></tr></td></tr>
+
+
+
+
+</table>
+</body>
+</html>

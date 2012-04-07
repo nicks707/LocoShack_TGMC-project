@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:sahil" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:jai" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:geo" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:jairam" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:shosa" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:test" serverId="Apache Geronimo v3.0 Server at localhost"/>
+  <module moduleId="org.eclipse.jst.jee.server:ram" serverId="Apache Geronimo v3.0 Server at localhost"/>
+</modules>

@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<style type="text/css">
+a{text-decoration:none}
+
+html,body,table#pagelayout {
+height:100%;
+width:100%;
+margin-top:0px;
+margin-left:0px;
+}
+
+#img{
+background-image:url(Green-cloth-texture.jpg);
+}
+.but{ background-color:#CC3333}
+
+</style>
+</head>
+<body bgcolor="#00FFFF" topmargin="0px">
+<table width="100%" id="pagelayout" border="0px" cellpadding="0px" cellspacing="0px">
+<tr bgcolor="#00FFFF" style="height:60px;">
+
+<td>&nbsp;&nbsp;&nbsp;&nbsp;<b><a href="">HOW IT WORKS</a> | <a href="">CREDITS</a> | <a href="">BUY DATASETS</a> | <a href="">SURVEYS</a><b></td>
+
+<form>
+<td align="right">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input type="button" value="LOGIN"  onclick="parent.location='login.html'" class="but"></td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <td align="left"><input type="button" value="SIGN UP" onclick="parent.location='signup.html'" class="but"> </td>&nbsp;&nbsp;&nbsp;&nbsp;
+</form> 
+
+</tr>
+
+<tr  style="height:100%; background-image:url(Green-cloth-texture.jpg)">
+<td  colspan="3"align="center">
+<img src="new tt.jpg" height="100px" align="top" /><br/><br/>
+<form> 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<input   align="middle" type="text"  size="100" width="40px"></input>&nbsp;<input style="background-image:url(images.jpg)" title="Set Location" type="button" onclick="window.open('setloc.jsp','nloc')"></input><br/><br /><!-- window.opener.document.forms.myform.myfield.valu -->
+<input type="submit" value="SEARCH" class="but"  />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" class="but" value="REFINED SEARCH" />
+<input type="hidden" />
+
+
+
+</td></tr>
+</form>
+</td>
+</tr>
+
+
+<tr    bgcolor="#99FFFF" style="height:90px;">
+<td  colspan="3" width="100%"  align="center"> <font color="#330099" face="Courier New, Courier, monospace"><b><a href="">Careers</a> <a href="">AboutUs</a> <a href="">ContactUs</a> <a href="">FanPage</a> <a href="">Blog</a> <a href="">FAQ</a> <a href="">TOS</a></b></font></td>
+</tr>
+</table>
+
+
+</body>
+</html>
